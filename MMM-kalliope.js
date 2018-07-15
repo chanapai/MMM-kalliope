@@ -43,14 +43,14 @@ Module.register('MMM-kalliope',{
         for(var i = 0; i < this.messages.length; i++){
             var dif = currentDate.getTime() - this.messages[i].timestamp.getTime();
             //double the length for longer messages
-            if (this.message.length > 30){
+            if (this.message.length > 50){
               var secondsFromCurrentDateToMessageDate = dif / 500;
               var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
               // delete the message if to old
               if (secondsBetweenDates > this.config.keep_seconds){
                   this.messages.splice(i, 1);
-            }
-          }else{
+                }
+            }else{
             var secondsFromCurrentDateToMessageDate = dif / 1000;
             var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
           }
