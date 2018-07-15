@@ -61,10 +61,15 @@ Module.register('MMM-kalliope',{
             return wrapper
         }
 
-        var title = document.createElement("div");
-        title.className = "light small dimmed";
-        title.innerHTML = this.config.title;
-        wrapper.appendChild(title);
+	var title = document.createElement("div");
+	var mycroftIcon = document.createElement("img");
+	//mycroftIcon.className = "badge";
+	mycroftIcon.src = "modules/MMM-kalliope/images/mycrofticon.png";
+	title.className = "bright medium light";
+	title.innerHTML = this.config.title;
+	wrapper.appendChild(mycroftIcon)
+	wrapper.appendChild(title);
+
 
         var table = document.createElement("table");
 
@@ -83,8 +88,7 @@ Module.register('MMM-kalliope',{
     },
 
     socketNotificationReceived: function(notification, payload) {
-        console.log(this.name + " received a socket notification: " + notification + " - Payload: " + payload);
-        if (notification == "KALLIOPE"){
+	if (notification == "KALLIOPE"){
             // create new message object
             var newMessage = new Message(payload);
             this.messages.push(newMessage);
@@ -104,9 +108,8 @@ Module.register('MMM-kalliope',{
 
     notificationReceived: function(notification, payload, sender) {
         if (sender) {
-            console.log(this.name + " received a module notification: " + notification
-            + " from sender: " + sender.name);
-            console.log(payload);
+            Log.log(this.name + " received a module notification: " + notification + " from sender: " + sender.name);
+            Log.log(payload);
         } else {
             Log.log(this.name + " received a system notification: " + notification);
         }
