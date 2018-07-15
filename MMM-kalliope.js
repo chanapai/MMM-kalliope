@@ -47,7 +47,7 @@ Module.register('MMM-kalliope',{
                 }
                 else{
                   var secondsFromCurrentDateToMessageDate = dif / 1000;
-                },
+                }
             var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
 
             // delete the message if to old
