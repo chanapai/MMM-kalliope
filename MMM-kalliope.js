@@ -27,7 +27,7 @@ Module.register('MMM-kalliope',{
         //Update DOM every minute so that the time of the call updates and calls get removed after a certain time
 		setInterval(() => {
 			this.updateDom();
-        }, 1000);
+    }, 800);
 
         // only clean old messages if keep_seconds is set
         if (this.config.keep_seconds > 0){
