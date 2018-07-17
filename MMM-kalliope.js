@@ -49,7 +49,7 @@ Module.register('MMM-kalliope',{
 	          if (allMessagesLength > 150){
               var totalSeconds = 10;
               if (secondsBetweenDates > totalSeconds){
-                this.messages.splice(i, 1);
+                this.messages.splice(i, 0);
               }
               continue;
 
