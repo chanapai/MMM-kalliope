@@ -42,11 +42,20 @@ Module.register('MMM-kalliope',{
 
         for(var i = 0; i < this.messages.length; i++){
             var dif = currentDate.getTime() - this.messages[i].timestamp.getTime();
-            var secondsFromCurrentDateToMessageDate = dif / 1000;
+	          var currentMessageLength = this.messages[i].length;
+	          var secondsFromCurrentDateToMessageDate = dif / 1000;
             var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
+	          var readMessageTime = currentMessageLength / 15;
+	          var secondsToReadMessage = Math.round(readMessageTime);
+	          var additionalSeconds = secondsToReadMessage - this.config.keep_seconds;
+            if (additionalSeconds < 0){
+		            additionalSeconds = 0;
+	    	        }
+            var totalSeconds = this.config.keep_seconds + additionalSeconds;
 
-            // delete the message if to old
-            if (secondsBetweenDates > this.config.keep_seconds){
+
+	    // delete the message if to old
+            if (secondsBetweenDates > totalSeconds){
                 this.messages.splice(i, 1);
             }
         }
@@ -91,6 +100,7 @@ Module.register('MMM-kalliope',{
 	if (notification == "KALLIOPE"){
             // create new message object
             var newMessage = new Message(payload);
+
             this.messages.push(newMessage);
 
             // clean old messages if list is too long
