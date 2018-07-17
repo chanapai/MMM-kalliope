@@ -42,10 +42,11 @@ Module.register('MMM-kalliope',{
 
         for(var i = 0; i < this.messages.length; i++){
             var dif = currentDate.getTime() - this.messages[i].timestamp.getTime();
-	          var currentMessageLength = this.messages[i].length;
+	          var allMessagesCombined = this.messages.join(" ");
 	          var secondsFromCurrentDateToMessageDate = dif / 1000;
             var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
-	          if (this.messages.length > 150){
+            var allMessagesLength = allMessagesCombined.length
+	          if (allMessagesLength > 150){
               var totalSeconds = 10;
               if (secondsBetweenDates > totalSeconds){
                 this.messages.splice(i, 1);
