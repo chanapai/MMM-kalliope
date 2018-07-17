@@ -48,8 +48,10 @@ Module.register('MMM-kalliope',{
 	          if (this.messages.length > 150){
               var totalSeconds = 10;
               if (secondsBetweenDates > totalSeconds){
-                continue;
+                this.messages.splice(i, 1);
               }
+              continue;
+
             }
 	    // delete the message if to old
             if (secondsBetweenDates > this.config.keep_seconds){
