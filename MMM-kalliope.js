@@ -45,7 +45,7 @@ Module.register('MMM-kalliope',{
 	          var currentMessageLength = this.messages[i].length;
 	          var secondsFromCurrentDateToMessageDate = dif / 1000;
             var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
-	          if (currentMessageLength > 150){
+	          if (this.messages.length > 150){
               var totalSeconds = 10;
               if (secondsBetweenDates > totalSeconds){
                 this.messages.splice(i, 1);
