@@ -52,7 +52,7 @@ Module.register('MMM-kalliope',{
             avgTimeToReadMessage = this.config.keep_seconds;
           }
 	    // delete the message if to old
-          if (secondsBetweenDates > timeToReadMessage){
+          if (secondsBetweenDates > avgTimeToReadMessage){
             this.messages.splice(i, 1);
           }
         }
