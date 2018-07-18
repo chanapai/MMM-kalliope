@@ -39,21 +39,14 @@ Module.register('MMM-kalliope',{
 
     cleanOldMesssage: function() {
         var currentDate = new Date();
+        var allMessagesCombined = this.messages.join(" ");
+        var allMessagesLength = allMessagesCombined.length
 
         for(var i = 0; i < this.messages.length; i++){
-            var dif = currentDate.getTime() - this.messages[i].timestamp.getTime();
-	          var allMessagesCombined = this.messages.join(" ");
-	          var secondsFromCurrentDateToMessageDate = dif / 1000;
-            var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
-            var allMessagesLength = allMessagesCombined.length
-	          if (allMessagesLength > 150){
-              var totalSeconds = 10;
-              if (secondsBetweenDates > totalSeconds){
-                this.messages.splice(i, 1);
-              }
-              continue;
-
-            }
+          var dif = currentDate.getTime() - this.messages[i].timestamp.getTime();
+          var secondsFromCurrentDateToMessageDate = dif / 1000;
+          var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
+          }
 	    // delete the message if to old
             if (secondsBetweenDates > this.config.keep_seconds){
                 this.messages.splice(i, 1);
