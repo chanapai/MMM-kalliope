@@ -39,7 +39,7 @@ Module.register('MMM-kalliope',{
 
     cleanOldMesssage: function() {
         var currentDate = new Date();
-        var firstMessageLength = this.messages[1].length;
+        var firstMessageLength = this.messages[0].length;
         var timeToReadMessage = firstMessageLength / 15;
         var timeToReadMessage = timeToReadMessage.round;
         if (timeToReadMessage < this.config.keep_seconds){
