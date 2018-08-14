@@ -47,13 +47,13 @@ Module.register('MMM-kalliope',{
           var secondsBetweenDates = Math.abs(secondsFromCurrentDateToMessageDate);
           var eachMessageLength = this.messages[i].length;
           var timeToReadMessage = eachMessageLength / 15;
-          var rndTimeToReadMessage = Math.round(timeToReadMessage);
-          if (rndTimeToReadMessage < this.config.keep_seconds){
-            rndTimeToReadMessage = this.config.keep_seconds;
+          var avgTimeToReadMessage = Math.round(timeToReadMessage);
+          if (avgTimeToReadMessage < this.config.keep_seconds){
+            avgTimeToReadMessage = this.config.keep_seconds;
           }
 	    // delete the message if to old
-        //  if (secondsBetweenDates > this.config.keep_seconds){
-        //    this.messages.splice(i, 1);
+        if (secondsBetweenDates > this.config.keep_seconds){
+            this.messages.splice(i, 1);
           }
         }
     },
