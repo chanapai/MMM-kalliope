@@ -106,7 +106,7 @@ Module.register('MMM-kalliope',{
             }
   if (notification == "AUDIO_END"){
             // When Mycroft signals the AUDIO_OUTPUT_END remove the message from the listener
-            this.messages.splice(0, 2);
+            this.messages.splice(1, 2);
 
             }
 
