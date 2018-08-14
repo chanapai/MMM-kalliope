@@ -52,8 +52,8 @@ Module.register('MMM-kalliope',{
             rndTimeToReadMessage = this.config.keep_seconds;
           }
 	    // delete the message if to old
-          if (secondsBetweenDates > this.config.keep_seconds){
-            this.messages.splice(i, 1);
+        //  if (secondsBetweenDates > this.config.keep_seconds){
+        //    this.messages.splice(i, 1);
           }
         }
     },
@@ -103,6 +103,11 @@ Module.register('MMM-kalliope',{
             // clean old messages if list is too long
             while(this.messages.length > this.config.max){
                 this.messages.shift();
+            }
+  if (notification == "AUDIO_END"){
+            // When Mycroft signals the AUDIO_OUTPUT_END remove the message from the listener
+            this.messages.splice(2, 0);
+
             }
 
         }else{
