@@ -100,9 +100,12 @@ Module.register('MMM-kalliope',{
             while(this.messages.length > this.config.max){
                 this.messages.shift();
             }
-  if (notification == "REMOVE_MESSAGE"){
+  if (notification === "REMOVE_MESSAGE"){
             // When Mycroft signals the AUDIO_OUTPUT_END remove the message from the screen
-              this.cleanOldMesssage();
+
+                setInterval(() => {
+                    this.cleanOldMesssage();
+                }, 1000);
 
             }
 
