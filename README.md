@@ -1,16 +1,14 @@
-# MMM-kalliope
+# MMM-kalliope forked to work with Mycroft's magic-mirror-voice-control-skill
 
-Module to bind [Kalliope](https://github.com/kalliope-project/kalliope) with your Magic Mirror.
+Module to bind Mycroft using the magic-mirror-voice-control-skill with your Magic Mirror.
 
 This module allow you to:
-- show what Kalliope say on the screen
+- show user utterances and Mycroft's response on the screen
 - control your Magic Mirror by sending notification to other active modules
 
 > **Note:** On Kalliope, [a neuron is available](https://github.com/kalliope-project/kalliope_neuron_magic_mirror) to talk with this module directly.
 
-![Demo](images/kalliope_neuron_magic_mirror_demo.gif)
-
-[Video demo with sound here](https://youtu.be/QHwctPbJ2ZY)
+[Video demo with sound here](https://www.youtube.com/watch?v=qoIKgChFubY)
 
 ## Installation
 
@@ -20,12 +18,14 @@ Configure your `~/MagicMirror/config/config.js`:
 
 ```js
 {
-    module: "MMM-kalliope",
-    position: "upper_third",
-    config: {
-        title: "Kalliope"
-    }
-}
+    			module: "MMM-kalliope",
+    			position: "upper_third",
+    			config: {
+        			max: "4",
+				title: "Mycroft",
+				keep_seconds: "0"
+    			}
+		},
 ```
 
 ## Configuration option
@@ -33,7 +33,7 @@ Configure your `~/MagicMirror/config/config.js`:
 | Option       | Default  | Description                                                                                                |
 |--------------|----------|------------------------------------------------------------------------------------------------------------|
 | max          | 5        | How many messages should be keept on the screen.                                                           |
-| keep_seconds | 5        | Number of seconds received messages will stay displayed. If set to "0", then message will never be removed |
+| keep_seconds | 5        | Number of seconds received messages will stay displayed. Set to 0 to work with Mycroft |
 | title        | Kalliope | The name placed above received messages                                                                    |
 
 ## API documentation
